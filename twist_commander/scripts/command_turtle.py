@@ -8,11 +8,19 @@ import geometry_msgs.msg
 
 if __name__ == '__main__':
 
+    #########################
+    # Initialisation
+    #########################
     # Initialises ros node. Mostlsy, first line command for ros python executable
     rospy.init_node('command_turtle')
 
     # Twist message publisher. (Topic name, Topic Type, Queue Size)
+    # Turtlesim topic name
     topic_name = 'turtle1/cmd_vel'
+
+    # Kobuki Topic name
+    # topic_name = '/mobile_base/commands/velocity'
+
     pub = rospy.Publisher(topic_name, geometry_msgs.msg.Twist, queue_size=5)
     # Give a graceful time to setup publisher 
     rospy.sleep(1.0)
